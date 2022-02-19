@@ -1,0 +1,74 @@
+﻿<Page x:Class="WpfVosmerkaApp.Views.Pages.ManagerPages.Products.ProductDataPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfVosmerkaApp.Views.Pages.ManagerPages.Products"
+      Loaded="Page_Loaded"
+      FontFamily="Courier New"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ProductDataPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Text="Поиск:"></TextBlock>
+            <TextBox Name="ProductSearchTxb" Width="250" SelectionChanged="ProductSearchTxb_SelectionChanged"></TextBox>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10,0">
+            <TextBlock Text="Tип продукта:"></TextBlock>
+            <ComboBox Name="ProductTypeCmb" SelectionChanged="ProductTypeCmb_SelectionChanged" Width="100">
+                <ComboBoxItem>Колесо</ComboBoxItem>
+                <ComboBoxItem>Запаска</ComboBoxItem>
+                <ComboBoxItem>Шина</ComboBoxItem>
+                <ComboBoxItem>Диск</ComboBoxItem>
+                <ComboBoxItem>Все</ComboBoxItem>
+            </ComboBox>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
+            <Button Content="Назад" Name="ProductBackBtn" Click="ProductBackBtn_Click" Margin="10,0" Width="100"></Button>
+        </StackPanel>
+
+        <Grid Name="ProductView" Grid.Row="1" Grid.Column="1">
+            <ListView Name="ProductListView" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.Column="0" Width="150" Height="150" Source="{Binding GetPicture}"></Image>
+
+                            <StackPanel Grid.Column="1" Margin="0,20">
+                                <Label Content="{Binding GetFullTitle}" FontSize="20"></Label>
+                                <Label Content="{Binding Articul}" ContentStringFormat="Артикул: {0}"  FontSize="16"></Label>
+                                <Label Content="{Binding WorkshopNumber}" ContentStringFormat="Номер цеха: {0}"  FontSize="16"></Label>
+                            </StackPanel>
+                            <StackPanel Grid.Column="2" VerticalAlignment="Bottom" Margin="750,0">
+                                <Label Content="{Binding Cost}" ContentStringFormat="Цена: {0}"></Label>
+                            </StackPanel>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Grid Name="NoProduct" Visibility="Collapsed" Grid.Row="1">
+                <TextBlock Text="Продукты отсутствуют!" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="50" FontWeight="SemiBold"/>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="2">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Button Content="Добавить" Name="ProductAddBtn" Click="ProductAddBtn_Click" Width="200"></Button>
+                <Button Content="Редактировать" Name="ProductEditBtn" Click="ProductEditBtn_Click" Margin="10,0" Width="200"></Button>
+                <Button Content="Удалить" Name="ProductDeleteBtn" Click="ProductDeleteBtn_Click" Width="200"></Button>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Page>
