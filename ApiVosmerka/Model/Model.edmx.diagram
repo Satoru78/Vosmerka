@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5c36caeb76ff496c8d39bdde28ee581e" Name="Diagram1">
+        <EntityTypeShape EntityType="VosmerkaBaseModel.AgentType" Width="1.5" PointX="3.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="VosmerkaBaseModel.DirectorName" Width="1.5" PointX="3.75" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="VosmerkaBaseModel.Manager" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VosmerkaBaseModel.Material" Width="1.5" PointX="11" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="VosmerkaBaseModel.MaterialType" Width="1.5" PointX="8.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VosmerkaBaseModel.PointOfSale" Width="1.5" PointX="3.75" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="VosmerkaBaseModel.Product" Width="1.5" PointX="11" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="VosmerkaBaseModel.ProductMaterial" Width="1.5" PointX="13.25" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="VosmerkaBaseModel.ProductType" Width="1.5" PointX="8.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VosmerkaBaseModel.Role" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="VosmerkaBaseModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VosmerkaBaseModel.Unit" Width="1.5" PointX="8.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VosmerkaBaseModel.User" Width="1.5" PointX="3" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="VosmerkaBaseModel.Agent" Width="1.5" PointX="6" PointY="4.25" IsExpanded="true" />
+        <AssociationConnector Association="VosmerkaBaseModel.FK_Agent_AgentType" ManuallyRouted="false" />
+        <AssociationConnector Association="VosmerkaBaseModel.FK_Agent_DirectorName" ManuallyRouted="false" />
+        <AssociationConnector Association="VosmerkaBaseModel.FK_Manager_Role" ManuallyRouted="false" />
+        <AssociationConnector Association="VosmerkaBaseModel.FK_Material_MaterialType" ManuallyRouted="false" />
+        <AssociationConnector Association="VosmerkaBaseModel.FK_Material_Unit" ManuallyRouted="false" />
+        <AssociationConnector Association="VosmerkaBaseModel.FK_ProductMaterial_Material" ManuallyRouted="false" />
+        <AssociationConnector Association="VosmerkaBaseModel.FK_Agent_PointOfSale" ManuallyRouted="false" />
+        <AssociationConnector Association="VosmerkaBaseModel.FK_Product_ProductType" ManuallyRouted="false" />
+        <AssociationConnector Association="VosmerkaBaseModel.FK_ProductMaterial_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="VosmerkaBaseModel.FK_Agent_Role" ManuallyRouted="false" />
+        <AssociationConnector Association="VosmerkaBaseModel.FK_User_Role" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
