@@ -1,5 +1,7 @@
-﻿using System;
+﻿using DocumentFormat.OpenXml.Bibliography;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,8 +27,9 @@ namespace WpfVosmerkaApp.Views.Pages.ManagerPages.Products
         public ProductType  ProductType { get; set; }
         public List<Product> Products { get; set; }
         public Product Product { get; set; }
+
         public ProductDataPage(Product product)
-        {
+        { 
             InitializeComponent();
             Product = product;
             this.DataContext = this;
@@ -132,6 +135,24 @@ namespace WpfVosmerkaApp.Views.Pages.ManagerPages.Products
         {
             Products = DataApp.vb.Product.ToList();
             ProductListView.ItemsSource = Products;
+        }
+
+        public void csvSaveBtn_Click(object sender, RoutedEventArgs e)
+        {
+            using (FileStream stream = new FileStream(Environment.CurrentDirectory + @"Product_export", FileMode.Create)) 
+            {
+                using (StreamWriter writer = new StreamWriter(stream))
+                {
+                    var product = DataApp.vb.Product.ToList();
+                    writer.WriteLine("Название;Артикул;Цена;Изображение;Тип продукта;Количество человек для производства;Номер цеха;");
+                    foreach (var item in product)
+                    {
+                        writer.WriteLine($"{item.Title};{item.Articul};{item.Cost};{item.Picture};{item.IDProductType};{item.CountOfPerson};{item.WorkshopNumber};");
+
+                    }
+                }
+            }
+            MessageBox.Show($"Сохранение прошло успешно! Проверьте файл тут: {Environment.CurrentDirectory}", "Сохранено" , MessageBoxButton.OK , MessageBoxImage.Information );
         }
     }
 }

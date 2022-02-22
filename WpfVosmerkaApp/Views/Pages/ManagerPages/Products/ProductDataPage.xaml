@@ -21,6 +21,10 @@
             <TextBox Name="ProductSearchTxb" Width="250" SelectionChanged="ProductSearchTxb_SelectionChanged"></TextBox>
         </StackPanel>
 
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="left" VerticalAlignment="Center">
+            <Button Content="Сохранить в .csv" Width="150" Margin="130,0,0,0" Name="csvSaveBtn" Click="csvSaveBtn_Click"></Button>
+        </StackPanel>
+
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10,0">
             <TextBlock Text="Tип продукта:"></TextBlock>
             <ComboBox Name="ProductTypeCmb" SelectionChanged="ProductTypeCmb_SelectionChanged" Width="100">
